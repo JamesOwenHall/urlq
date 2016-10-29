@@ -1,0 +1,10 @@
+[package]
+name = "urlq"
+version = "0.1.0"
+authors = ["James Hall <james_hall@live.ca>"]
+
+[dependencies]
+clap = "2.16"
+
+[dependencies.url]
+git = "https://github.com/servo/rust-url"
