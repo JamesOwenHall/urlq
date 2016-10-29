@@ -1,4 +1,7 @@
 # urlq
+
+[![Build Status](https://travis-ci.org/JamesOwenHall/urlq.svg?branch=master)](https://travis-ci.org/JamesOwenHall/urlq)
+
 urlq is a tool for encoding and decoding URL queries from the terminal.
 
 ## Usage
