@@ -1,6 +1,9 @@
 extern crate clap;
 extern crate url;
 
+#[cfg(test)]
+mod main_test;
+
 use std::io;
 
 use clap::{App, Arg, ArgGroup, ArgMatches};
@@ -60,29 +63,4 @@ pub fn app() -> App<'static, 'static> {
         .arg(Arg::with_name("INPUT")
             .multiple(true)
             .required(true))
-}
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn test_decode() {
-        let args = vec!["urlq", "-d", "jib=foo%20bar"];
-        let app = super::app();
-
-        let mut out = Vec::new();
-        super::run(app.get_matches_from(args), &mut out);
-
-        assert_eq!(out.as_slice(), b"jib=foo bar\n");
-    }
-
-    #[test]
-    fn test_encode() {
-        let args = vec!["urlq", "-e", "jib=foo bar"];
-        let app = super::app();
-
-        let mut out = Vec::new();
-        super::run(app.get_matches_from(args), &mut out);
-
-        assert_eq!(out.as_slice(), b"jib%3Dfoo+bar\n");
-    }
 }
